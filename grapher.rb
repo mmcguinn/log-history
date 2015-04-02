@@ -1,7 +1,7 @@
 module LogHistory
     class Grapher
-        def initialize()
-            @output_file = "output.png"
+        def initialize(outfile = "output.png")
+            @output_file = outfile
             @data_col = MONGO['data']
         end
 
@@ -87,7 +87,10 @@ module LogHistory
             "maximum_value" => 1.0,
             "minimum_value" => 0.0
         }
-        TOTAL_OPTS = {
+        LINE_OPTS = {
+            "type" => "line"
+        }
+        AREA_OPTS = {
             "type" => "area"
         }
     end

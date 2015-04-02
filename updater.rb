@@ -9,7 +9,6 @@ module LogHistory
         def process(days = 1)
             date = Date.today
             (1..days).each do |n|
-                puts n
                 puts "Processing #{date - n}"
                 process_day(date - n)
             end
@@ -56,7 +55,7 @@ module LogHistory
             results = {}
 
             rule["bindings"].each do |name, body|
-                puts 'Evaling binding'
+                #puts 'Evaling binding'
                 eval_binding(body, from, to).each do |site, binding|
                     bindings[site] ||= {}
                     bindings[site][name] = binding
@@ -79,7 +78,7 @@ module LogHistory
                 conn = Faraday.new(url: site["url"]) do |fara|
                     fara.basic_auth(CONFIG["auth"]["user"], CONFIG["auth"]["password"])
                     fara.adapter(Faraday.default_adapter)
-                    fara.response :logger
+                    #fara.response :logger
                 end
                 response = conn.get do |req|
                     req.url "#{site["url"]}/search/universal/absolute/fieldhistogram"
