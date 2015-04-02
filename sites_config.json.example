@@ -1,19 +1,19 @@
 {
     "sites": [{
-        "name": "BOS",
-        "url": "https://vbos-p-log-1.gh-int.com:12900",
+        "name": "One",
+        "url": "https://one.com:12900",
         "color": "#3366cc88"
     },{
-        "name": "AUS",
-        "url": "https://vaus-p-log-1.gh-int.com:12900",
+        "name": "Two",
+        "url": "http://two.com:12900",
         "color": "#dc391288"
     },{
-        "name": "LAS",
-        "url": "https://vlas-p-log-1.gh-int.com:12900",
+        "name": "Three",
+        "url": "https://three.net:12900",
         "color": "#ff990088"
     }],
     "auth": {
-        "user": "api",
-        "password": "f33467ef2de42c5ca00f9319bbde94d2"
+        "user": "USER",
+        "password": "PASSWORD"
     }
 }

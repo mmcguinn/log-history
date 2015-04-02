@@ -28,6 +28,7 @@ module LogHistory
 
             @rules.each do |rule|
                 pool.process do
+                    p 'Evaling rule'
                     eval_rule(rule, from, to).each do |site, vals|
                         datalock.synchronize do
                             data[site] ||= {}
@@ -55,6 +56,7 @@ module LogHistory
             results = {}
 
             rule["bindings"].each do |name, body|
+                puts 'Evaling binding'
                 eval_binding(body, from, to).each do |site, binding|
                     bindings[site] ||= {}
                     bindings[site][name] = binding
@@ -77,7 +79,7 @@ module LogHistory
                 conn = Faraday.new(url: site["url"]) do |fara|
                     fara.basic_auth(CONFIG["auth"]["user"], CONFIG["auth"]["password"])
                     fara.adapter(Faraday.default_adapter)
-                    #fara.response :logger
+                    fara.response :logger
                 end
                 response = conn.get do |req|
                     req.url "#{site["url"]}/search/universal/absolute/fieldhistogram"
