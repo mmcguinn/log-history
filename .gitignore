@@ -1,0 +1,5 @@
+rules_config.json
+sites_config.json
+*.swp
+*.gem
+/.bundle

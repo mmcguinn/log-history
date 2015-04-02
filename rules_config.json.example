@@ -1,0 +1,24 @@
+{
+    "rules": [{
+        "name": "Test 1",
+        "bindings": {
+            "successes": {
+                "query": "Test 1 Pass",
+                "field": "level"
+            },
+            "fails": {
+                "query": "Test 1 Fail",
+                "field": "level"
+        }},
+        "definition": "b['successes']['count'] / (b['successes']['count'] + b['fails']['count'])"
+    },{
+        "name": "Test 2",
+        "bindings": {
+            "successes": {
+                "query": "Test 3 Pass",
+                "field": "level"
+        }},
+        "definition": "b['successes']['count']"
+    }]
+}
+
